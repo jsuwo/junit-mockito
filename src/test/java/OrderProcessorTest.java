@@ -28,6 +28,7 @@ public class OrderProcessorTest {
     OrderProcessor processor = new OrderProcessor(warehouse, mailer);
     processor.processOrder(order);
 
+    verify(warehouse).fill(order);
     verify(mailer).send(isA(Message.class));
   }
 
